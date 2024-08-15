@@ -1,0 +1,20 @@
+docker login -u shosen
+
+docker-compose run --rm app -c "python manage.py collectstatic"
+run will start a specific container defined in config
+--rm remmove the container
+app is service name
+sh -c passed in ashell command
+
+# docker commands
+docker build .
+docker-compose build
+docker-compose run --rm app sh -c "flake8"
+docker-compose run --rm app sh -c "django-admin startproject app ."
+docker-compose up
+docker-compose down
+ctrl alt c
+
+# github actions
+git push
+
