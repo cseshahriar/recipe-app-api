@@ -8,13 +8,39 @@ sh -c passed in ashell command
 
 # docker commands
 docker build .
-docker-compose build
 docker-compose run --rm app sh -c "flake8"
 docker-compose run --rm app sh -c "django-admin startproject app ."
-docker-compose up
+docker-compose run --rm app sh -c "django-admin startapp core"
+docker-compose run --rm app sh -c "python manage.py test"
+
+# any change after
 docker-compose down
+docker-compose build
+docker-compose up
+docker-compose up --build
+docker-compose run --rm app sh -c "python manage.py test"
+
+
 ctrl alt c
+
+# postgres problem
+docker volume prune
+docker-compose down --volumes
+docker-compose build --no-cache
+docker-compose up
+
 
 # github actions
 git push
+
+#  DRF base on the unitest library
+
+Test Case
+    SimpleTestCase
+        * No database integration
+        * Useful in no database is required for your test
+        * save time execution tests
+    TestCase
+        Database integration
+        Useful for testing code that uses the database
 
