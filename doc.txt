@@ -19,7 +19,8 @@ docker-compose build
 docker-compose up
 docker-compose up --build
 docker-compose run --rm app sh -c "python manage.py test"
-
+docker volums ls
+docker voume rm volume_name
 
 ctrl alt c
 
