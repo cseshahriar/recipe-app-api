@@ -29,6 +29,7 @@ INSTALLED_APPS = [
 
     # custom apps
     'core',
+    'user',
 
     # third party
     'rest_framework',

@@ -13,6 +13,7 @@ docker-compose run --rm app sh -c "django-admin startproject app ."
 docker-compose run --rm app sh -c "django-admin startapp core"
 docker-compose run --rm app sh -c "python manage.py test"
 
+ docker-compose run --rm app sh -c "python manage.py startapp user"
 
 docker-compose down --volumes
 docker system prune --volumes
