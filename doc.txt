@@ -59,3 +59,13 @@ http://127.0.0.1:8000/api/user/token/
 http://127.0.0.1:8000/api/user/me/
 
 f47ca6c7a8eba42118288aa0bcf8415baa247eed
+
+
+What is refactoring ?
+* Restructure code
+    * Easier to read
+    * more efficient
+    * Less Duplication
+
+* Improve performance
+* Does the same thing

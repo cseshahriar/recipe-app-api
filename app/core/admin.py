@@ -4,7 +4,8 @@ from django.utils.translation import gettext_lazy as _
 from core.models import (
     User,
     Recipe,
-    Tag
+    Tag,
+    Ingredient
 )
 
 
@@ -60,6 +61,14 @@ class TagAdmin(admin.ModelAdmin):
     ordering = ('-pk', )
 
 
+class IngredientAdmin(admin.ModelAdmin):
+    list_display = ('pk', 'name', 'user', )
+    search_fields = ('name', )
+    list_filter = ('name', )
+    ordering = ('-pk', )
+
+
 admin.site.register(User, CustomUserAdmin)
 admin.site.register(Recipe, RecipeAdmin)
 admin.site.register(Tag, TagAdmin)
+admin.site.register(Ingredient, IngredientAdmin)
