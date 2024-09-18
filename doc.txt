@@ -52,3 +52,10 @@ Test Case
         Database integration
         Useful for testing code that uses the database
 
+
+
+http://127.0.0.1:8000/api/user/create/
+http://127.0.0.1:8000/api/user/token/
+http://127.0.0.1:8000/api/user/me/
+
+f47ca6c7a8eba42118288aa0bcf8415baa247eed

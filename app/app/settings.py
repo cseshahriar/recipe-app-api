@@ -33,7 +33,8 @@ INSTALLED_APPS = [
 
     # third party
     'rest_framework',
-    'drf_spectacular',
+    'rest_framework.authtoken',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
@@ -128,11 +129,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'core.User'
 
 REST_FRAMEWORK = {
-    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',  # For Token Auth
+        # 'rest_framework_simplejwt.authentication.JWTAuthentication',  # For JWT Auth (if using JWT)
+    ],
 }
-# SPECTACULAR_SETTINGS = {
-#     'TITLE': 'Recipe API',
-#     'DESCRIPTION': 'Recipe API project',
-#     'VERSION': '1.0.0',
-#     'SERVE_INCLUDE_SCHEMA': False,
-# }
