@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     # custom apps
     'core',
     'user',
+    'recipe',
 
     # third party
     'rest_framework',

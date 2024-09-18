@@ -1,7 +1,10 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
-from core.models import User
 from django.utils.translation import gettext_lazy as _
+from core.models import (
+    User,
+    Recipe
+)
 
 
 class CustomUserAdmin(BaseUserAdmin):
@@ -39,4 +42,12 @@ class CustomUserAdmin(BaseUserAdmin):
     list_filter = ('is_active', 'is_staff', 'is_superuser')
 
 
+class RecipeAdmin(admin.ModelAdmin):
+    list_display = ('title', 'user', 'time_minutes', 'price')
+    search_fields = ('title', 'description')
+    list_filter = ('user',)
+    ordering = ('title',)
+
+
 admin.site.register(User, CustomUserAdmin)
+admin.site.register(Recipe, RecipeAdmin)
