@@ -3,7 +3,8 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.utils.translation import gettext_lazy as _
 from core.models import (
     User,
-    Recipe
+    Recipe,
+    Tag
 )
 
 
@@ -43,11 +44,22 @@ class CustomUserAdmin(BaseUserAdmin):
 
 
 class RecipeAdmin(admin.ModelAdmin):
-    list_display = ('title', 'user', 'time_minutes', 'price')
+    list_display = ('title', 'user', 'time_minutes', 'price', 'tags')
     search_fields = ('title', 'description')
     list_filter = ('user',)
     ordering = ('title',)
 
+    def tags(self, obj):
+        return ", ".join([tag.name for tag in obj.tags.all])
+
+
+class TagAdmin(admin.ModelAdmin):
+    list_display = ('pk', 'name', 'user', )
+    search_fields = ('name', )
+    list_filter = ('name', )
+    ordering = ('-pk', )
+
 
 admin.site.register(User, CustomUserAdmin)
 admin.site.register(Recipe, RecipeAdmin)
+admin.site.register(Tag, TagAdmin)
